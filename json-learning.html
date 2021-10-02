@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 class="test">
+      when you type 'hi', it pull the data from same json-data, and change it
+    </h2>
+    <input type="text" class="test-input" />
+
+    <!-- 🍀 json 데이터 가져오기 -->
+    <script type="text/javascript" src="./data.json"></script>
+
+    <script>
+      /* 🍀
+      10. 타이핑 'hi',
+      20 hi === 데이터안의 name과 비교 후에 같으면      
+      30. json에서 데이터 가져와서, 화면에 innerHTML
+       */
+      const test = document.querySelector(".test");
+      const testInput = document.querySelector(".test-input");
+
+      console.log(dalcom);
+
+      testInput.addEventListener("change", () => {
+        if (testInput.value.toLowerCase() === dalcom[0].name) {
+          test.innerHTML = dalcom[0].age;
+        } else {
+          console.log(false);
+          return;
+        }
+      });
+
+      // 🍀JSON.stringify()  /  JSON.parse()
+
+      // json데이터파일 형식
+      let user = {
+        name: "John",
+        age: 35,
+      };
+
+      console.log(user);
+
+      /* 🍉JSON.stringify() : data -> json 로 바꾸지*/
+      let user3 = JSON.stringify(user);
+      console.log(user3);
+
+      /* 🍉 JSON.parse() : json -> data 로 바꾸기*/
+      let user4 = JSON.parse(JSON.stringify(user));
+      console.log(user4);
+
+      testInput.addEventListener("change", () => {
+        if (testInput.value.toLowerCase() === user.name) {
+          test.innerHTML = `${user.age}`;
+        } else {
+          console.log(false);
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>
